@@ -1,0 +1,12 @@
+postgres:
+  host: "YOUR_POSTGRES_HOST"
+  database: "YOUR_POSTGRES_DB"
+  user: "YOUR_POSTGRES_USER"
+  password: "YOUR_POSTGRES_PASSWORD"
+
+openai:
+  api_key: "YOUR_OPENAI_API_KEY"
+
+qdrant:
+  host: "localhost"
+  port: 6333

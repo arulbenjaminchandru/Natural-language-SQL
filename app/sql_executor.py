@@ -2,10 +2,28 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from app.config import config
 import openai
+import re
 
 openai.api_key = config['openai']['api_key']
 
+def extract_sql_query(input_string):
+    # Define a regex pattern to match the SQL query
+    pattern = re.compile(r'\bSELECT\b.*?\bFROM\b.*?;', re.DOTALL | re.IGNORECASE)
+    
+    # Search for the pattern in the input string
+    match = pattern.search(input_string)
+    
+    if match:
+        return match.group(0).strip()
+    else:
+        return "No SQL query found."
+
+
 def execute_sql_query(sql_query):
+    
+    sql_query = extract_sql_query(sql_query)
+
+    print("SQL Query : " + sql_query)
     """
     Execute the given SQL query and return the results.
     """

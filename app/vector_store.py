@@ -2,7 +2,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 from app.config import config
 
-client = QdrantClient(config['qdrant']['host'], port=config['qdrant']['port'])
+client = QdrantClient(url=config['qdrant']['url'], api_key=config['qdrant']['api_key'])
 
 def add_to_qdrant(texts, embeddings):
     client.recreate_collection(

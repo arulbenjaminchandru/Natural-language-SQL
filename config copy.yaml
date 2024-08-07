@@ -8,5 +8,5 @@ openai:
   api_key: "YOUR_OPENAI_API_KEY"
 
 qdrant:
-  host: "localhost"
-  port: 6333
+  url: "YOUR_QDRANT_CLOUD_URL"
+  api_key: "YOUR_QDRANT_CLOUD_API_KEY"
